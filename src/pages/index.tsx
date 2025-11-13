@@ -3,6 +3,7 @@ import DefaultLayout from "@/layouts/default";
 import React from "react";
 import {SiteData} from "@/types/data.types";
 
+import {Hero} from "@/components/Hero";
 import {BlogIntro} from "@/components/BlogIntro";
 import {CategoryList} from "@/components/CategoryList";
 import {readFile} from "fs/promises";
@@ -22,33 +23,38 @@ export default function Page(props: InferGetStaticPropsType<typeof getStaticProp
     const [isCatListOpen, setIsCatListOpen] = React.useState(false);
 
     return (
-        <DefaultLayout>
-            {
-                context.autoSummary&&
+        <DefaultLayout containerMaxWidth="max-w-full">
+            {/* Hero Section */}
+            <Hero />
+
+            <div className="max-w-screen-xl mx-auto w-full space-y-12 py-12">
+                {
+                    context.autoSummary&&
+                    <section>
+                        <BlogIntro entities={context.autoEntities}
+                                   topics={context.autoTopics}
+                                   keywords={context.autoKeywords}
+                                   isStackOpen={isCatListOpen}
+                                   summary={context.autoSummary}
+                        />
+                    </section>
+                }
                 <section>
-                    <BlogIntro entities={context.autoEntities}
-                               topics={context.autoTopics}
-                               keywords={context.autoKeywords}
-                               isStackOpen={isCatListOpen}
-                               summary={context.autoSummary}
+                    <SectionTitle>
+                        Directories
+                    </SectionTitle>
+                    <DirectoryList data={directories} />
+                </section>
+                <section>
+                    <SectionTitle>
+                        Explore by topic
+                    </SectionTitle>
+                    <CategoryList categories={categories}
+                                  onOpen={() => setIsCatListOpen(true)}
+                                  onClosed={() => setIsCatListOpen(false)}
                     />
                 </section>
-            }
-            <section>
-                <SectionTitle>
-                    Directories
-                </SectionTitle>
-                <DirectoryList data={directories} />
-            </section>
-            <section>
-                <SectionTitle>
-                    Explore by topic
-                </SectionTitle>
-                <CategoryList categories={categories}
-                              onOpen={() => setIsCatListOpen(true)}
-                              onClosed={() => setIsCatListOpen(false)}
-                />
-            </section>
+            </div>
         </DefaultLayout>
     )
 }

@@ -2,6 +2,46 @@
 @tailwind components;
 @tailwind utilities;
 
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&display=swap');
+
+:root {
+    /* Couleurs principales Samhatit Consulting */
+    --graphite: #0D0F11;
+    --graphite-light: #181B1E;
+    --graphite-medium: #212831;
+    --copper: #B46A3C;
+    --copper-light: #C77B4A;
+    --copper-glow: rgba(180, 106, 60, 0.4);
+    --white: #FFFFFF;
+    --gray: #D1D5DB;
+    --gray-dark: #9CA3AF;
+    --gray-darker: #6B7280;
+
+    /* Gradients */
+    --gradient-copper: linear-gradient(135deg, var(--copper), var(--copper-light));
+    --gradient-dark: linear-gradient(180deg, var(--graphite-light) 0%, var(--graphite) 100%);
+
+    /* Effets */
+    --glow: 0 0 10px rgba(196, 123, 74, 0.7), 0 0 22px rgba(180, 106, 60, 0.5);
+    --shadow: 0 8px 24px rgba(0, 0, 0, 0.5);
+    --shadow-hover: 0 0 25px rgba(180, 106, 60, 0.4);
+
+    /* Autres */
+    --radius: 14px;
+    --transition: all 0.3s ease;
+}
+
+* {
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+html, body {
+    font-family: 'Inter', system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
+    background: var(--graphite);
+    color: var(--white);
+}
+
 
 .gradient-text{
     @apply bg-gradient-to-r inline-block text-transparent bg-clip-text;

@@ -5,24 +5,24 @@ import {GrayConfig} from "@/types/gray.types";
 
 const configs: GrayConfig ={
     icon: "/img.png",
-    title: "AI Tinkerers Blog (Amsterdam)",
+    title: "Samhatit Consulting | Expert Salesforce & Transformation IA",
     querySuggestions: [
-        "Who are you?",
-        "Compare the talk by Lucas and Tomas",
-        "What are advantages of small models?",
-        "Which speaker talked about the future of AI?",
-        "Summarize all given posts in one sentence"
+        "Quels sont les bénéfices d'Agentforce ?",
+        "Comment démarrer avec Salesforce ?",
+        "Qu'est-ce que la transformation IA ?",
+        "Quelles sont vos expertises sectorielles ?",
+        "Comment calculer mon ROI Agentforce ?"
     ],
     socials: [
         {
-            "label": "Twitter",
-            "link": "https://twitter.com",
-            "provider": "x"
+            "label": "LinkedIn",
+            "link": "https://linkedin.com/company/samhatit-consulting",
+            "provider": "linkedin"
         },
         {
-            "label": "Facebook",
-            "link": "https://facebook.com",
-            "provider": "facebook"
+            "label": "Email",
+            "link": "mailto:contact@samhatit-consulting.cloud",
+            "provider": "email"
         }
     ],
     contentPlugins: [

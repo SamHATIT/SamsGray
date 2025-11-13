@@ -12,6 +12,34 @@ module.exports = {
     ],
     theme: {
         extend: {
+            colors: {
+                // Samhatit Consulting Brand Colors
+                graphite: {
+                    DEFAULT: '#0D0F11',
+                    light: '#181B1E',
+                    medium: '#212831',
+                },
+                copper: {
+                    DEFAULT: '#B46A3C',
+                    light: '#C77B4A',
+                    glow: 'rgba(180, 106, 60, 0.4)',
+                },
+                gray: {
+                    custom: '#D1D5DB',
+                    dark: '#9CA3AF',
+                    darker: '#6B7280',
+                }
+            },
+            boxShadow: {
+                'glow': '0 0 10px rgba(196, 123, 74, 0.7), 0 0 22px rgba(180, 106, 60, 0.5)',
+                'glow-sm': '0 0 6px var(--copper-glow)',
+                'shadow-hover': '0 0 25px rgba(180, 106, 60, 0.4)',
+                'shadow-dark': '0 8px 24px rgba(0, 0, 0, 0.5)',
+            },
+            backgroundImage: {
+                'gradient-copper': 'linear-gradient(135deg, #B46A3C, #C77B4A)',
+                'gradient-dark': 'linear-gradient(180deg, #181B1E 0%, #0D0F11 100%)',
+            },
             transitionDelay: {
                 '0': '0ms',
                 '250': '250ms',
@@ -27,6 +55,11 @@ module.exports = {
             animation: {
                 fadeIn: 'fadeIn 500ms ease-in-out forwards',
                 fadeOut: 'fadeOut 500ms ease-in-out forwards',
+                fadeInDown: 'fadeInDown 0.8s ease-out both',
+                fadeInUp: 'fadeInUp 1.2s ease-out both',
+                pulse: 'pulse 2.5s infinite ease-in-out alternate',
+                float: 'float 20s infinite ease-in-out',
+                glowIn: 'glowIn 2s ease-out both',
                 'gradient-x':'gradient-x 5s ease infinite',
                 'gradient-y':'gradient-y 5s ease infinite',
                 'gradient-xy':'gradient-xy 5s ease infinite',
@@ -39,6 +72,26 @@ module.exports = {
                 fadeOut: {
                     from: {opacity: 1, transform: 'translateY(0)'},
                     to: {opacity: 0, transform: 'translateY(30px)'},
+                },
+                fadeInDown: {
+                    from: { opacity: 0, transform: 'translateY(-20px)' },
+                    to: { opacity: 1, transform: 'translateY(0)' },
+                },
+                fadeInUp: {
+                    from: { opacity: 0, transform: 'translateY(40px)' },
+                    to: { opacity: 1, transform: 'translateY(0)' },
+                },
+                pulse: {
+                    from: { boxShadow: '0 0 10px rgba(180, 106, 60, 0.3)' },
+                    to: { boxShadow: '0 0 10px rgba(196, 123, 74, 0.7), 0 0 22px rgba(180, 106, 60, 0.5)' },
+                },
+                float: {
+                    '0%, 100%': { transform: 'translateY(0) translateX(0)', opacity: '0.3' },
+                    '50%': { transform: 'translateY(-50px) translateX(30px)', opacity: '1' },
+                },
+                glowIn: {
+                    from: { opacity: 0, transform: 'scaleX(0.5)' },
+                    to: { opacity: 1, transform: 'scaleX(1)' },
                 },
                 'gradient-y': {
                     '0%, 100%': {
@@ -72,7 +125,7 @@ module.exports = {
                 }
             },
             fontFamily: {
-                sans: ["var(--font-sans)", ...defaultTheme.fontFamily.sans],
+                sans: ['Inter', "var(--font-sans)", ...defaultTheme.fontFamily.sans],
                 serif: defaultTheme.fontFamily.serif,
                 mono: defaultTheme.fontFamily.mono,
             },
